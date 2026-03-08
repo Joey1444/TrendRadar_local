@@ -55,27 +55,27 @@ schedule:
 platforms:
   enabled: true                         # 是否启用热榜平台抓取
   sources:
-    # # === 综合新闻媒体类 ===
-    # # 筛选逻辑：权威性(澎湃/早报) + 时效性(腾讯) + 影响力(今日头条/百度)
-    # - id: "thepaper"
-    #   name: "澎湃新闻"
-    # - id: "zaobao"
-    #   name: "联合早报"
-    # - id: "tencent-hot"
-    #   name: "腾讯新闻 综合早报"
-    # - id: "toutiao"
-    #   name: "今日头条"
+    # === 综合新闻媒体类 ===
+    # 筛选逻辑：权威性(澎湃/早报) + 时效性(腾讯) + 影响力(今日头条/百度)
+    - id: "thepaper"
+      name: "澎湃新闻"
+    - id: "zaobao"
+      name: "联合早报"
+    - id: "tencent-hot"
+      name: "腾讯新闻 综合早报"
+    - id: "toutiao"
+      name: "今日头条"
 
-    # # === 财经投资类 ===
-    # # 筛选逻辑：时效性(财联社/金十) + 影响力(华尔街/雪球)
-    # - id: "cls-telegraph"
-    #   name: "财联社 电报"
-    # - id: "wallstreetcn-quick"
-    #   name: "华尔街见闻 快讯"
-    # - id: "jin10"
-    #   name: "金十数据"
-    # - id: "xueqiu"
-    #   name: "雪球"
+    # === 财经投资类 ===
+    # 筛选逻辑：时效性(财联社/金十) + 影响力(华尔街/雪球)
+    - id: "cls-telegraph"
+      name: "财联社 电报"
+    - id: "wallstreetcn-quick"
+      name: "华尔街见闻 快讯"
+    - id: "jin10"
+      name: "金十数据"
+    - id: "xueqiu"
+      name: "雪球"
 
     # === 社交/短视频/娱乐类 ===
     # 筛选逻辑：全网热度(微博/抖音) + 深度讨论(知乎/虎扑)
@@ -88,18 +88,16 @@ platforms:
     - id: "bilibili-hot-search"
       name: "bilibili 热搜"
 
-    # # === 科技类平台 ===
-    # # 筛选逻辑：行业快讯(IT之家) + 技术深度(V2EX/GitHub/HN/少数派)
-    # - id: "ithome"
-    #   name: "IT之家"
-    # - id: "v2ex"
-    #   name: "V2EX"
-    # - id: "github"
-    #   name: "GitHub"
-    # - id: "hackernews"
-    #   name: "Hacker News"
-    # - id: "sspai"
-    #   name: "少数派"
+    # === 科技类平台 ===
+    # 筛选逻辑：行业快讯(IT之家) + 技术深度(V2EX/GitHub/HN/少数派)
+    - id: "ithome"
+      name: "IT之家"
+    - id: "github"
+      name: "GitHub"
+    - id: "hackernews"
+      name: "Hacker News"
+    - id: "sspai"
+      name: "少数派"
            
 
 # ===============================================================
@@ -135,17 +133,17 @@ rss:
   # - 正整数：覆盖全局设置，只推送此天数内的文章
   # - 0：禁用此频道的新鲜度过滤，推送所有文章
   feeds:
-    # - id: "hacker-news"
-    #   name: "Hacker News"
-    #   url: "https://hnrss.org/frontpage"
+    - id: "hacker-news"
+      name: "Hacker News"
+      url: "https://hnrss.org/frontpage"
 
-    # - id: "ruanyifeng"
-    #   name: "阮一峰的网络日志"
-    #   url: "http://www.ruanyifeng.com/blog/atom.xml"
+    - id: "ruanyifeng"
+      name: "阮一峰的网络日志"
+      url: "http://www.ruanyifeng.com/blog/atom.xml"
 
-    # - id: "yahoo-finance"
-    #   name: "雅虎财经"
-    #   url: "https://finance.yahoo.com/news/rssindex"
+    - id: "yahoo-finance"
+      name: "雅虎财经"
+      url: "https://finance.yahoo.com/news/rssindex"
 
     - id: "bing-global news"
       name: "必应-全球新闻"
