@@ -58,6 +58,22 @@ class AIAnalyzer:
             get_time_func: 获取当前时间的函数
             debug: 是否开启调试模式
         """
+        # --- 【新增修改：处理 API Key 环境变量解析】 ---
+    # 获取配置里的 api_key 字符串
+    api_key_str = ai_config.get("api_key", "")
+    
+    # 检查是否使用了 "os.environ/变量名" 的格式
+    if isinstance(api_key_str, str) and api_key_str.startswith("os.environ/"):
+        env_var_name = api_key_str.split("/")[-1]  # 提取出 "GEMINI_API_KEY"
+        real_key = os.getenv(env_var_name)        # 从系统环境变量读取真正的 AIza...
+        
+        if real_key:
+            ai_config["api_key"] = real_key        # 替换为真实的 Key
+            if debug:
+                print(f"[AI] 已成功从环境变量加载 {env_var_name}")
+        else:
+            print(f"[AI] 错误: 环境变量 {env_var_name} 未设置，将导致认证失败！")
+    # --------------------------------------------
         self.ai_config = ai_config
         self.analysis_config = analysis_config
         self.get_time_func = get_time_func
