@@ -51,51 +51,38 @@ class AIAnalyzer:
     ):
         """
         初始化 AI 分析器
-        """
-        # 1. 处理 API Key 环境变量解析（必须在创建 client 之前）
-        import os  
-        
-        # 获取配置里的 api_key
-        api_key_str = ai_config.get("api_key", "")
-        
-        # 如果是字符串且符合 os.environ/ 格式，进行动态替换
-        if isinstance(api_key_str, str) and api_key_str.startswith("os.environ/"):
-            env_var_name = api_key_str.split("/")[-1]
-            real_key = os.getenv(env_var_name)
-            
-            if real_key:
-                ai_config["api_key"] = real_key
-                if debug:
-                    print(f"[AI] 成功从环境变量 {env_var_name} 加载密钥")
-            else:
-                # 打印清晰的错误提示，方便你排查 GitHub Secrets 是否设置正确
-                print(f"[AI] ❌ 严重警告: 无法在环境变量中找到 {env_var_name}")
 
-        # 2. 维持原有的变量赋值
+        Args:
+            ai_config: AI 模型配置（LiteLLM 格式）
+            analysis_config: AI 分析功能配置（language, prompt_file 等）
+            get_time_func: 获取当前时间的函数
+            debug: 是否开启调试模式
+        """
         self.ai_config = ai_config
         self.analysis_config = analysis_config
         self.get_time_func = get_time_func
         self.debug = debug
 
-        # 3. 创建 AI 客户端
+        # 创建 AI 客户端（基于 LiteLLM）
         self.client = AIClient(ai_config)
 
-        # 4. 验证配置
+        # 验证配置
         valid, error = self.client.validate_config()
         if not valid:
             print(f"[AI] 配置警告: {error}")
 
-        # 5. 维持原有的功能参数获取逻辑
+        # 从分析配置获取功能参数
         self.max_news = analysis_config.get("MAX_NEWS_FOR_ANALYSIS", 50)
         self.include_rss = analysis_config.get("INCLUDE_RSS", True)
         self.include_rank_timeline = analysis_config.get("INCLUDE_RANK_TIMELINE", False)
         self.include_standalone = analysis_config.get("INCLUDE_STANDALONE", False)
         self.language = analysis_config.get("LANGUAGE", "Chinese")
 
-        # 6. 维持原有的提示词模板加载
+        # 加载提示词模板
         self.system_prompt, self.user_prompt_template = self._load_prompt_template(
             analysis_config.get("PROMPT_FILE", "ai_analysis_prompt.txt")
         )
+
         
     def _load_prompt_template(self, prompt_file: str) -> tuple:
         """加载提示词模板"""
