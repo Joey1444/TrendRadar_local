@@ -72,6 +72,10 @@ platforms:
       name: "财联社 电报"
     - id: "wallstreetcn-quick"
       name: "华尔街见闻 快讯"
+    - id: "wallstreetcn-hot"
+      name: "华尔街见闻 最热"
+    - id: "wallstreetcn-news"
+      name: "华尔街见闻 最新"
     - id: "jin10"
       name: "金十数据"
     - id: "xueqiu"
@@ -79,14 +83,10 @@ platforms:
 
     # === 社交/短视频/娱乐类 ===
     # 筛选逻辑：全网热度(微博/抖音) + 深度讨论(知乎/虎扑)
-    - id: "weibo"
-      name: "微博"
     - id: "zhihu"
       name: "知乎"
     - id: "douyin"
       name: "抖音"
-    - id: "bilibili-hot-search"
-      name: "bilibili 热搜"
 
     # === 科技类平台 ===
     # 筛选逻辑：行业快讯(IT之家) + 技术深度(V2EX/GitHub/HN/少数派)
@@ -94,11 +94,16 @@ platforms:
       name: "IT之家"
     - id: "github"
       name: "GitHub"
-    - id: "hackernews"
-      name: "Hacker News"
+    - id: "nowcoder"
+      name: "牛客网"
     - id: "sspai"
       name: "少数派"
-           
+    - id: "chongbuluo"
+      name: "虫部落"    
+    - id: "pcbeta"
+      name: "远景论坛"
+    - id: "juejin"
+      name: "掘金"
 
 # ===============================================================
 # 3. 数据源 - RSS 订阅
@@ -133,22 +138,21 @@ rss:
   # - 正整数：覆盖全局设置，只推送此天数内的文章
   # - 0：禁用此频道的新鲜度过滤，推送所有文章
   feeds:
-    - id: "hacker-news"
-      name: "Hacker News"
-      url: "https://hnrss.org/frontpage"
-
     - id: "ruanyifeng"
       name: "阮一峰的网络日志"
       url: "http://www.ruanyifeng.com/blog/atom.xml"
 
-    - id: "yahoo-finance"
-      name: "雅虎财经"
-      url: "https://finance.yahoo.com/news/rssindex"
-
     - id: "bing-global news"
       name: "必应-全球新闻"
       url: "https://www.bing.com/news/search?q=全球新闻&format=RSS"
+      
+    - id: "International: Top News And Analysis"
+      name: "国际头条新闻与分析"
+      url: "https://www.cnbc.com/id/100727362/device/rss/rss.html"
 
+    - id: "Top stories - Google News"
+      name: "谷歌新闻"
+      url: "https://news.google.com/rss"
 
 
     # 自定义源示例
