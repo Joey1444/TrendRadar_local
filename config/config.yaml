@@ -41,7 +41,7 @@ app:
 # ===============================================================
 schedule:
   enabled: true                         # 是否启用调度系统
-  preset: "morning_evening"             # 预设模板名称（见上方说明）
+  preset: "office_hours"             # 预设模板名称（见上方说明）
 
 
 # ===============================================================
@@ -195,7 +195,7 @@ report:
   # false: 按匹配到的热点条数排序（条数多的在前）
   sort_by_position_first: false
 
-  rank_threshold: 5                   # 排名高亮阈值
+  rank_threshold: 6                   # 排名高亮阈值
 
   max_news_per_keyword: 0             # 每个关键词最大显示数量（0=不限制）
 
@@ -226,7 +226,7 @@ display:
   regions:
     hotlist: true # 热榜区域（关键词匹配的热点新闻）
     rss: true # RSS 订阅区域
-    new_items: false  # 新增热点区域（含热榜新增 + RSS 新增）
+    new_items: true  # 新增热点区域（含热榜新增 + RSS 新增）
     standalone: false  # 独立展示区（完整热榜/RSS，不受关键词过滤）
     ai_analysis: true # AI 分析区域
   standalone:
