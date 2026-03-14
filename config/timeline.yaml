@@ -271,8 +271,8 @@ presets:
           push: true
       weekend_free:
         name: "周末自由"
-        start: "08:00"
-        end: "23:00"
+        start: "20:00"
+        end: "21:00"
         ai_mode: "daily"         # AI 分析当前榜单
         push: true                 # 有新增就推送
         report_mode: "daily" # 增量模式：有新增才推，没有就安静
